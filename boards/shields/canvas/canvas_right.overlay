@@ -1,0 +1,34 @@
+#include "canvas.dtsi"
+
+&default_transform {
+    col-offset = <5>;
+};
+
+&kscan0 {
+    col-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH)>,
+                <&xiao_d 1 (GPIO_ACTIVE_HIGH)>,
+                <&xiao_d 2 (GPIO_ACTIVE_HIGH)>,
+                <&xiao_d 3 (GPIO_ACTIVE_HIGH)>,
+                <&xiao_d 6 (GPIO_ACTIVE_HIGH)>;
+};
+
+/{  
+    // dummy device to make the overlay compile
+    haptic_l: haptic_l {
+        compatible = "zmk,output-split-output-relay";
+        #binding-cells = <0>;
+    };
+
+    haptic_r: haptic_r {
+        compatible = "zmk,output-haptic-feedback";
+        #binding-cells = <0>;
+        driver = "drv2605";
+        device = <&drv2605_0>;
+    };
+
+    output_relay_config_201_l {
+        compatible = "zmk,split-peripheral-output-relay";
+        device = <&haptic_r>;
+        relay-channel = <201>;
+    };
+};

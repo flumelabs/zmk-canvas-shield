@@ -1,0 +1,11 @@
+file_format: "1"
+id: canvas
+name: Canvas
+type: shield
+url: https://github.com/flumelabs/canvas
+requires: [seeduino_xiao_ble]
+features:
+  - keys
+siblings:
+  - canvas_left
+  - canvas_right

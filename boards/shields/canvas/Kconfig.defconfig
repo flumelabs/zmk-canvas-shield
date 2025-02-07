@@ -1,0 +1,19 @@
+if SHIELD_CANVAS_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Canvas"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_CANVAS_LEFT || SHIELD_CANVAS_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config I2C
+    default y
+
+endif
